@@ -17,7 +17,7 @@ int main()
     dual x = 2.0;
     dual u = f(x);
 
-    double dudx = derivative(f, wrt(x), x);
+    double dudx = derivative(f, wrt(x), at(x));
 
     assert(abs(dudx - 4.0) < 1e-14);
 }
