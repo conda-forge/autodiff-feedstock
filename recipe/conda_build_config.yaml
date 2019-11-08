@@ -8,3 +8,5 @@ cxx_compiler:  # [win]
     - vs2017             # [win]
     - vs2017             # [win]
 
+MACOSX_DEPLOYMENT_TARGET:  # [osx]
+  - '10.12'                # [osx]
