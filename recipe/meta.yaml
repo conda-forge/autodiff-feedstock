@@ -5,12 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
-  sha256: c746bf611c66acc94113aa4483caf73631216d6db5b511df2b5dcb29a0a4345a
+  url: https://github.com/allanleal/autodiff/archive/improve-high-order-derivatives-using-array.tar.gz
+  sha256: 62fa8f463b11533212a2b7b3c3a899a89a6a42404da75821fdd59048041892c7
+  # url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
+  # sha256: c746bf611c66acc94113aa4483caf73631216d6db5b511df2b5dcb29a0a4345a
 
 build:
   number: 0
-  skip: True  # [win and vc<15]
 
 requirements:
   build:
@@ -18,6 +19,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
+    - ccache  # [unix]
 
   host:
     - eigen
