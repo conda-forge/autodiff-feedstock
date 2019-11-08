@@ -1,10 +1,9 @@
 // C++ includes
 #include <cmath>
 #include <cassert>
-using namespace std;
 
 // autodiff includes
-#include <autodiff/forward.hpp>
+#include <autodiff/forward/dual.hpp>
 using namespace autodiff;
 
 dual f(dual x)
@@ -19,5 +18,5 @@ int main()
 
     double dudx = derivative(f, wrt(x), at(x));
 
-    assert(abs(dudx - 4.0) < 1e-14);
+    assert(std::abs(dudx - 4.0) < 1e-14);
 }
