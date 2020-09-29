@@ -1,5 +1,5 @@
-mkdir build
-cd build
+mkdir .build
+cd .build
 
 REM Configure step
 cmake .. ^
