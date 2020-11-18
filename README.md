@@ -5,11 +5,13 @@ Home: https://autodiff.github.io
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/autodiff-feedstock/blob/master/LICENSE.txt)
 
 Summary: Automatic differentiation in C++ couldn't be simpler.
 
+Development: https://github.com/autodiff/autodiff
 
+Documentation: https://autodiff.github.io
 
 Current build status
 ====================
