@@ -5,13 +5,6 @@
 jobs:
 - job: linux
   pool:
-<<<<<<< HEAD
-    vmImage: ubuntu-16.04
-  strategy:
-    matrix:
-      linux_64_:
-        CONFIG: linux_64_
-=======
     vmImage: ubuntu-latest
   strategy:
     matrix:
@@ -29,7 +22,6 @@ jobs:
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
       linux_64_python3.9.____cpython:
         CONFIG: linux_64_python3.9.____cpython
->>>>>>> v0.6
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-comp7
   timeoutInMinutes: 360
@@ -56,5 +48,3 @@ jobs:
     displayName: Run docker build
     env:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
-      FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
-      STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)

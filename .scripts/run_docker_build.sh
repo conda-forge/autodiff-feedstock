@@ -76,13 +76,8 @@ fi
 
 export UPLOAD_PACKAGES="${UPLOAD_PACKAGES:-True}"
 docker run ${DOCKER_RUN_ARGS} \
-<<<<<<< HEAD:.scripts/run_docker_build.sh
-           -v "${RECIPE_ROOT}":/home/conda/recipe_root:rw,z \
-           -v "${FEEDSTOCK_ROOT}":/home/conda/feedstock_root:rw,z \
-=======
            -v "${RECIPE_ROOT}":/home/conda/recipe_root:rw,z,delegated \
            -v "${FEEDSTOCK_ROOT}":/home/conda/feedstock_root:rw,z,delegated \
->>>>>>> v0.6:.azure-pipelines/run_docker_build.sh
            -e CONFIG \
            -e HOST_USER_ID \
            -e UPLOAD_PACKAGES \
@@ -94,11 +89,6 @@ docker run ${DOCKER_RUN_ARGS} \
            -e BUILD_WITH_CONDA_DEBUG \
            -e BUILD_OUTPUT_ID \
            -e BINSTAR_TOKEN \
-<<<<<<< HEAD:.scripts/run_docker_build.sh
-           -e FEEDSTOCK_TOKEN \
-           -e STAGING_BINSTAR_TOKEN \
-=======
->>>>>>> v0.6:.azure-pipelines/run_docker_build.sh
            $DOCKER_IMAGE \
            bash \
            /home/conda/feedstock_root/${PROVIDER_DIR}/build_steps.sh
