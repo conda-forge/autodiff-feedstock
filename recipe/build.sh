@@ -8,14 +8,18 @@ JOBS=$((CPU_COUNT*2 - 1))
 
 echo "Using $JOBS parallel jobs out of $((CPU_COUNT*2)) available to build autodiff."
 
+mkdir .build
+cd .build
+
 # Configure the build of autodiff
-cmake -S . -B .build ${CMAKE_ARGS} \
+cmake -GNinja .. ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE=Release     \
     -DAUTODIFF_BUILD_EXAMPLES=OFF  \
     -DPYTHON_EXECUTABLE=$PYTHON
 
 # Build and install autodiff in $PREFIX
-cmake --build .build --target install --parallel $JOBS
+# make install -j $JOBS
+ninja install
 
 # Perform all autodiff tests after build step
-cmake --build .build --target tests
+ninja tests
