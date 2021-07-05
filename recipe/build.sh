@@ -6,12 +6,7 @@
 # due to many parallel jobs consuming all available memory
 JOBS=$((CPU_COUNT*2 - 1))
 
-<<<<<<< HEAD
-mkdir .build
-cd .build
-=======
 echo "Using $JOBS parallel jobs out of $((CPU_COUNT*2)) available to build autodiff."
->>>>>>> v0.6
 
 # Configure the build of autodiff
 cmake -S . -B build ${CMAKE_ARGS} \
