@@ -1,39 +1,61 @@
+<<<<<<< HEAD
 {% set version = "0.5.13" %}
+=======
+{% set version = "0.6.0" %}
+>>>>>>> v0.6
 
 package:
   name: autodiff
   version: {{ version }}
 
 source:
+<<<<<<< HEAD
   url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
   sha256: a73dc571bcaad6b44f74865fed51af375f5a877db44321b5568d94a4358b77a1
 
 build:
   number: 0
   skip: true  # [win and vc<15]
+=======
+  git_url: https://github.com/allanleal/autodiff.git
+  git_rev: develop
+
+  # url: https://github.com/allanleal/autodiff/archive/improve-high-order-derivatives-using-array.tar.gz
+  # sha256: 62fa8f463b11533212a2b7b3c3a899a89a6a42404da75821fdd59048041892c7
+  # url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
+  # sha256: c746bf611c66acc94113aa4483caf73631216d6db5b511df2b5dcb29a0a4345a
+
+build:
+  number: 0
+>>>>>>> v0.6
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - ninja
+    - ccache  # [unix]
+    - clcache  # [win]
 
   host:
+    - python
     - eigen
+    - catch2
+    - pybind11
+    - pybind11-stubgen
+    - pybind11-abi
 
   run:
+    - python
     - {{ pin_compatible('eigen', max_pin='x') }}
 
 test:
-  files:
-    - test/
-
   requires:
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - ninja
+  files:
+    - test/
+  imports:
+    - autodiff
 
 about:
   home: https://autodiff.github.io

@@ -4,7 +4,7 @@
 using namespace std;
 
 // autodiff includes
-#include <autodiff/forward.hpp>
+#include <autodiff/forward/dual.hpp>
 using namespace autodiff;
 
 dual f(dual x)
