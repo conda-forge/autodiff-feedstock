@@ -1,14 +1,11 @@
-mkdir build
-cd build
+@REM Configure the build of autodiff
+cmake -S . -B build                           ^
+    -DCMAKE_BUILD_TYPE=Release                ^
+    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%   ^
+    -DCMAKE_INCLUDE_PATH=%LIBRARY_INC%        ^
+    -DAUTODIFF_PYTHON_INSTALL_PREFIX=%PREFIX% ^
+    -DPYTHON_EXECUTABLE=%PYTHON%
 
-REM Configure step
-cmake .. ^
-    -GNinja ^
-    -DCMAKE_BUILD_TYPE=Release ^
-    -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
-    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%
-if errorlevel 1 exit 1
-
-REM Build step
-ninja install
-if errorlevel 1 exit 1
+@REM Build and install autodiff in %LIBRARY_PREFIX%
+@REM Note: No need for --parallel below, since cmake takes care of the /MP flag for MSVC
+cmake --build build --config Release --target install
