@@ -1,17 +1,25 @@
 #!/bin/bash
 
-export CPATH=$PREFIX/include
+# Avoid errors on the server such as:
+#  - Error: virtual memory exhausted: Cannot allocate memory
+#  - Error: Exit code 137
+# due to many parallel jobs consuming all available memory
+JOBS=$((CPU_COUNT*2 - 1))
+
+echo "Using $JOBS parallel jobs out of $((CPU_COUNT*2)) available to build autodiff."
 
 mkdir .build
 cd .build
 
-# Configure step
-cmake .. \
-    -GNinja \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_PREFIX_PATH=$PREFIX \
-    -DCMAKE_INSTALL_PREFIX=$PREFIX \
-    -DCMAKE_INSTALL_LIBDIR=lib \
+# Configure the build of autodiff
+cmake -GNinja .. ${CMAKE_ARGS} \
+    -DCMAKE_BUILD_TYPE=Release     \
+    -DAUTODIFF_BUILD_EXAMPLES=OFF  \
+    -DPYTHON_EXECUTABLE=$PYTHON
 
-# Build step
+# Build and install autodiff in $PREFIX
+# make install -j $JOBS
 ninja install
+
+# Perform all autodiff tests after build step
+ninja tests

@@ -1,14 +1,17 @@
 mkdir .build
 cd .build
 
-REM Configure step
-cmake .. ^
-    -GNinja ^
-    -DCMAKE_BUILD_TYPE=Release ^
-    -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
-    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%
-if errorlevel 1 exit 1
+@REM Configure the build of autodiff
+cmake -GNinja ..                              ^
+    -DCMAKE_BUILD_TYPE=Release                ^
+    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%   ^
+    -DCMAKE_INCLUDE_PATH=%LIBRARY_INC%        ^
+    -DAUTODIFF_BUILD_EXAMPLES=OFF             ^
+    -DAUTODIFF_PYTHON_INSTALL_PREFIX=%PREFIX% ^
+    -DPYTHON_EXECUTABLE=%PYTHON%
 
-REM Build step
+@REM Build and install autodiff in %LIBRARY_PREFIX%
 ninja install
-if errorlevel 1 exit 1
+
+@REM Perform all autodiff tests after build step
+ninja tests

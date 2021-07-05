@@ -1,4 +1,4 @@
-{% set version = "0.5.13" %}
+{% set version = "0.6.0" %}
 
 package:
   name: autodiff
@@ -6,11 +6,10 @@ package:
 
 source:
   url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
-  sha256: a73dc571bcaad6b44f74865fed51af375f5a877db44321b5568d94a4358b77a1
+  sha256: b76e6a96e539f173a2a24eefa6f4e7cff54b1144cc51c51eba44ac3779a14013
 
 build:
   number: 0
-  skip: true  # [win and vc<15]
 
 requirements:
   build:
@@ -18,22 +17,31 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
+    - ccache  # [unix]
+    - clcache  # [win]
 
   host:
+    - python
     - eigen
+    - catch2
+    - pybind11
+    - pybind11-stubgen
+    - pybind11-abi
 
   run:
+    - python
     - {{ pin_compatible('eigen', max_pin='x') }}
 
 test:
-  files:
-    - test/
-
   requires:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - ninja
+  files:
+    - test/
+  imports:
+    - autodiff
 
 about:
   home: https://autodiff.github.io
