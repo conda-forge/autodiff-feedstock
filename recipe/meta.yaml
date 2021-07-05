@@ -7,7 +7,6 @@ package:
 source:
   git_url: https://github.com/allanleal/autodiff.git
   git_rev: develop
-  git_depth: 1
 
   # url: https://github.com/allanleal/autodiff/archive/improve-high-order-derivatives-using-array.tar.gz
   # sha256: 62fa8f463b11533212a2b7b3c3a899a89a6a42404da75821fdd59048041892c7
@@ -25,7 +24,9 @@ requirements:
     - clcache  # [win]
 
   host:
+    - python
     - eigen
+    - catch2
     - pybind11
     - pybind11-stubgen
 
