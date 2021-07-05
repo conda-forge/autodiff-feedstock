@@ -29,6 +29,7 @@ requirements:
     - catch2
     - pybind11
     - pybind11-stubgen
+    - pybind11-abi
 
   run:
     - python
