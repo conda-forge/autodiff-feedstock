@@ -9,9 +9,9 @@ JOBS=$((CPU_COUNT*2 - 1))
 echo "Using $JOBS parallel jobs out of $((CPU_COUNT*2)) available to build autodiff."
 
 # Configure the build of autodiff
-cmake -S . -B build ${CMAKE_ARGS} \
+cmake -S . -B .build ${CMAKE_ARGS} \
     -DCMAKE_BUILD_TYPE=Release \
     -DPYTHON_EXECUTABLE=$PYTHON
 
 # Build and install autodiff in $PREFIX
-cmake --build build --target install --parallel $JOBS
+cmake --build .build --target install --parallel $JOBS

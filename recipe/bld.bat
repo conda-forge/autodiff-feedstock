@@ -1,5 +1,5 @@
 @REM Configure the build of autodiff
-cmake -S . -B build                           ^
+cmake -S . -B .build                           ^
     -DCMAKE_BUILD_TYPE=Release                ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%   ^
     -DCMAKE_INCLUDE_PATH=%LIBRARY_INC%        ^
@@ -8,4 +8,4 @@ cmake -S . -B build                           ^
 
 @REM Build and install autodiff in %LIBRARY_PREFIX%
 @REM Note: No need for --parallel below, since cmake takes care of the /MP flag for MSVC
-cmake --build build --config Release --target install
+cmake --build .build --config Release --target install
