@@ -9,7 +9,7 @@ source:
   sha256: b76e6a96e539f173a2a24eefa6f4e7cff54b1144cc51c51eba44ac3779a14013
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -30,7 +30,7 @@ requirements:
 
   run:
     - python
-    - {{ pin_compatible('eigen', max_pin='x') }}
+    # eigen MUST NOT be added here but installed explicitly by the user if needed
 
 test:
   requires:
