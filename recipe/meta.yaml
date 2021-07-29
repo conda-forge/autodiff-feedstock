@@ -1,4 +1,4 @@
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: autodiff
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
-  sha256: b2e8ed18ee6eb39cac9232f8cd0c29b9cd08a236417740361f5ac46118bf9374
+  sha256: b065ac0ec4a94763567a3e7bd79a7d88f464a2028957bfcb994b923a0917c5e6
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
