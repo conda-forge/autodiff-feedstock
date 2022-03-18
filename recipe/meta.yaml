@@ -22,6 +22,7 @@ requirements:
 
   host:
     - python
+    - pip
     - eigen
     - catch2
     - pybind11
