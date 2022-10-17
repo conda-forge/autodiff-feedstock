@@ -24,7 +24,7 @@ requirements:
     - python
     - pip
     - eigen
-    - catch2 =2
+    - catch2 =3
     - pybind11
     - pybind11-stubgen
     - pybind11-abi
