@@ -1,4 +1,4 @@
-{% set version = "0.6.11" %}
+{% set version = "0.6.12" %}
 
 package:
   name: autodiff
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
-  sha256: ac7a52387a10ecb8ba77ce5385ffb23893ff9a623467b4392bd204422a3b5c09
+  sha256: 3e9d667b81bba8e43bbe240a0321e25f4be248d1761097718664445306882dcc
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -24,7 +24,7 @@ requirements:
     - python
     - pip
     - eigen
-    - catch2 =2
+    - catch2 =3
     - pybind11
     - pybind11-stubgen
     - pybind11-abi
