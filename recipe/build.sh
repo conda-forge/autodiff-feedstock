@@ -31,4 +31,7 @@ cmake -GNinja .. ${CMAKE_ARGS} \
 ninja install
 
 # Perform all autodiff tests after build step
-ninja tests
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
+  ninja tests
+fi
+
