@@ -48,7 +48,8 @@ test:
   files:
     - test/
   imports:
-    - autodiff
+    # Disable importing test in Windows for now. This started failing in new conda-forge builds (05.04.24).
+    - autodiff  # [not win]
 
 about:
   home: https://autodiff.github.io
