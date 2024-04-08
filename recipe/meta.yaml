@@ -9,7 +9,7 @@ source:
   sha256: 05aa2a432c83db079efeca1c407166a3f3d190645bd3202da3b6357fb30fc9e1
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -48,8 +48,7 @@ test:
   files:
     - test/
   imports:
-    # Disable importing test in Windows for now. This started failing in new conda-forge builds (05.04.24).
-    - autodiff  # [not win]
+    - autodiff
 
 about:
   home: https://autodiff.github.io
