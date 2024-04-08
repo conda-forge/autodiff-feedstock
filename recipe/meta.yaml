@@ -1,20 +1,15 @@
-{% set version = "1.1.1" %}
+{% set version = "1.1.2" %}
 
 package:
   name: autodiff
   version: {{ version }}
 
-# source:
-#   url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
-#   sha256: 05aa2a432c83db079efeca1c407166a3f3d190645bd3202da3b6357fb30fc9e1
-
-
 source:
-  git_url: https://github.com/allanleal/autodiff.git
-  git_rev: py-fixes-for-win
+  url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
+  sha256: 86f68aabdae1eed214bfbf0ddaa182c78ea1bb99e4df404efb7b94d30e06b744
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
