@@ -8,7 +8,7 @@ cmake -GNinja ..                              ^
     -DCMAKE_INCLUDE_PATH=%LIBRARY_INC%        ^
     -DAUTODIFF_BUILD_EXAMPLES=OFF             ^
     -DAUTODIFF_PYTHON_INSTALL_PREFIX=%PREFIX% ^
-    -DPYTHON_EXECUTABLE=%PYTHON%
+    -DPython_EXECUTABLE=%PYTHON%
 
 @REM Build and install autodiff in %LIBRARY_PREFIX%
 ninja install

@@ -1,4 +1,4 @@
-{% set version = "1.1.1" %}
+{% set version = "1.1.2" %}
 
 package:
   name: autodiff
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/autodiff/autodiff/archive/v{{ version }}.tar.gz
-  sha256: 05aa2a432c83db079efeca1c407166a3f3d190645bd3202da3b6357fb30fc9e1
+  sha256: 86f68aabdae1eed214bfbf0ddaa182c78ea1bb99e4df404efb7b94d30e06b744
 
 build:
   number: 0
@@ -23,8 +23,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - ninja
-    - ccache  # [unix]
-    - clcache  # [win]
+    - ccache
 
   host:
     - python
@@ -48,8 +47,7 @@ test:
   files:
     - test/
   imports:
-    # Disable importing test in Windows for now. This started failing in new conda-forge builds (05.04.24).
-    - autodiff  # [not win]
+    - autodiff
 
 about:
   home: https://autodiff.github.io
