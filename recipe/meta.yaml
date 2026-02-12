@@ -22,7 +22,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake <=3.31
     - ninja
     - ccache
 
@@ -43,7 +43,7 @@ test:
   requires:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake <=3.31
     - ninja
   files:
     - test/
